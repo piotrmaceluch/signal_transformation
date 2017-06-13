@@ -28,8 +28,7 @@ class modulator : public point
     protected:
         
     public:
-        void setInputBits(const int inputBits[]);
-        void setMappingPoints();
+        void setInputBits();
 };
 
 class demodulator : public point
@@ -42,35 +41,30 @@ class demodulator : public point
 
 };
 
-// class interface : public modulator , public demodulator // pozwala na wywolywanie metod modulatora i demodulatora
-// {
-//     public:
-//          void mappingI( std::array<modulator,4> mArray); //
-// };
 
-void mapping(std::array<modulator,4> mArray);
+void settingInputBits(std::array<modulator,4> mArray);
 //==========================================================================================
-
-
+//==========================================================================================
+//==========================================================================================
 int main()
 {
     std::array<modulator,4> mArray;
     std::array<demodulator,4> dArray;
        
-    mapping(mArray);
+    settingInputBits(mArray);
 }
-
-
+//==========================================================================================
+//==========================================================================================
 //===========================================================================================
-void mapping(std::array<modulator,4> mArray)
+void settingInputBits(std::array<modulator,4> mArray)
 {
 	for(int i=0 ; i<4 ; i++)
 	{
-		mArray[i].setMappingPoints();
+		mArray[i].setInputBits();
 	}
 }
 
-void modulator::setMappingPoints()
+void modulator::setInputBits()
 {
 	for(int j=0 ; j<4 ; j++)
 	{
